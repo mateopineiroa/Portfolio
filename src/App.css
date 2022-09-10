@@ -53,7 +53,9 @@
 
 .App {
   position: relative;
-  /* margin: auto; */
+  background-color: #8b8b8b;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 header {
