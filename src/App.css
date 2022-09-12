@@ -55,7 +55,7 @@ body {
 }
 
 .top:hover {
-  background: hsl(251, 27%, 39%);
+  background: hsl(0, 0%, 69%);
 
 }
 
@@ -64,7 +64,7 @@ body {
   padding: 15px 45px;
   border-radius: 15px;
   font-size: 2rem;
-  background: hsl(278deg 980% 77%);
+  background: hsl(0, 0%, 0%);
   color: white;
   transform: translateY(-8px);
 }
