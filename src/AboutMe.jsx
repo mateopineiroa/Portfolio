@@ -1,4 +1,5 @@
 import React from 'react'
+import me from "./assets/pic.png"
 
 const AboutMe = () => {
   return (
@@ -8,7 +9,7 @@ const AboutMe = () => {
             <h1>Mateo Piñeiro</h1>
             <p>Chamuyo del bueno</p>
           </div>
-          <img src="./src/assets/pic.png" alt="Dev's img"/>
+          <img src={me} alt="Dev's img"/>
         </header>
     </div>
   )
