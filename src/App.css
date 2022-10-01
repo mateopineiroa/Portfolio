@@ -50,6 +50,10 @@ img {
   width: 250px;
 }
 
+.curriculum-link {
+  display: block;
+}
+
 .button {
   border: none;
   padding: 0;

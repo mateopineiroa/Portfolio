@@ -20,6 +20,7 @@ const Contact = () => {
           <div className="contact-img">
             <img src={linkedin} alt="Linkedin Img" />
           </div>
+          <a target={"_blank"} href="https://linkedin.com/in/mateopineiro">/mateopineiro</a>
         </div>
         <div className="contact-card">
           <div className="contact-img">
