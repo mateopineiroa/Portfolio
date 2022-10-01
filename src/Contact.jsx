@@ -30,8 +30,10 @@ const Contact = () => {
         </div>
         <div className="contact-card">
           <div className="contact-img">
-            <a target={"_blank"} href="https://github.com/mateopineiroa"><img src={gitHub} alt="github Img" /></a>
+              <img src={gitHub} alt="github Img" />
           </div>
+            <a target={"_blank"} href="https://github.com/mateopineiroa">Github</a>
+
         </div>
         
         {/* Form and handle form(?) */}

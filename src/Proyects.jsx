@@ -8,7 +8,7 @@ const Proyects = () => {
   return (
     
       <div className="proyects">
-          <h2>Some of my creations:</h2>
+          <h1>Some of my creations:</h1>
           <a target="_blank" href="https://symphonious-pavlova-924168.netlify.app/"><img className="proyect" src={businessManager} alt="proyect"/></a>
           <a target="_blank" href="https://meek-syrniki-76a53e.netlify.app/"><img className="proyect" src={pacientAdmin} alt=""/></a>
           <a target="_blank" href="https://inmobiliaria-pineiro.vercel.app/"><img className="proyect" src={realState} alt=""/></a>
