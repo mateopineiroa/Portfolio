@@ -14,8 +14,8 @@ const AboutMe = () => {
             <a href={cv} download>
               <img src={me} alt="curriculum downloader"/>
             </a>
+            <span>Click my picture to download my curriculum!</span>
           </div>
-            <p>Click my image to download my curriculum!</p>
 
         </header>
     </div>
