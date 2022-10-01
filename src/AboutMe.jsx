@@ -1,5 +1,6 @@
 import React from 'react'
 import me from "./assets/pic.png"
+import cv from "./assets/cv.pdf"
 
 const AboutMe = () => {
   return (
@@ -7,9 +8,15 @@ const AboutMe = () => {
       <header>
           <div>
             <h1>Mateo Piñeiro</h1>
-            <p>Chamuyo del bueno</p>
+            <p>Software engineer student and web developer. With interest in being part of a team of developers and make challenging proyects. I consider myself as a problem-solver kind of person, proactive and a fast learner. I try to be as good teammate as possible.</p>
           </div>
-          <img src={me} alt="Dev's img"/>
+          <div>
+            <a href={cv} download>
+              <img src={me} alt="curriculum downloader"/>
+            </a>
+          </div>
+            <p>Click my image to download my curriculum!</p>
+
         </header>
     </div>
   )

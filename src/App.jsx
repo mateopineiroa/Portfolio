@@ -13,12 +13,11 @@ function App() {
     <>
       <Background />
       <div className="App">
-      <Selection setSection={setSection}/>
-        
-      {
-        section == "proyects" ?                             /* Operador ternario quizas(? */
-        <Proyects /> : section == "aboutMe" ? <AboutMe /> : <Contact /> 
-      }
+        <Selection setSection={setSection}/>  
+        {
+          section == "proyects" ?                             /* Operador ternario quizas(? */
+          <Proyects /> : section == "aboutMe" ? <AboutMe /> : <Contact /> 
+        }
       </div>
     </>
   )

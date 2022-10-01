@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -84,7 +84,7 @@ body {
 
 .App {
   position: relative;
-  
+  width: 90vw;
   background-color: #8b8b8b;
   border-radius: 20px;
   padding: 20px;
@@ -105,12 +105,12 @@ header {
 }
 
 body {
-  
   background-color: rgb(26, 0, 50);
 }
 
 h1 {
   font-size:60px;
+  margin-bottom: 20px;
 }
 h2 {
   font-size: 45px;
@@ -135,6 +135,25 @@ img {
   scale: 1.2;
   transition: all .5s ease;
 }
+
+.contact-ico {
+  padding-top: 20px;
+  text-align: center;
+}
+.contact-title {
+  margin-top: 20px;
+}
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+  margin-top: 30px;
+}
+.contact-card {
+  background-color: #FFF;
+
+}
+
 
 /* Animated background */
 
