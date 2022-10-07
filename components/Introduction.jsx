@@ -5,7 +5,7 @@ const Intro = ({ scrollAboutMe }) => {
 
         <h1 className=" text-4xl self-center">{"Hi! I'm"} <span className=" text-violet-700">Mateo</span></h1>
 
-        <p className="text-lg self-center max-w-3xl mt-3 text-center ">{"I'm a Front-End Developer. Currently, i'm focused on building responsive front-end applications while learning back-end technologies."}</p>
+        <p className="text-lg self-center max-w-3xl mt-3 text-center ">{"I'm a Front-End Developer currently focused on building responsive front-end applications while learning back-end technologies."}</p>
       <div className="flex flex-col justify-center ">
         </div>
 

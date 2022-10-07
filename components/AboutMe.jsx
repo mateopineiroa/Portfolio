@@ -8,7 +8,7 @@ const AboutMe = () => {
       <div className="p-10 md:max-w-lg md:self-center">
         <h2 className=" text-4xl mb-4 ">About Me</h2>
         <p className="">{"I'm a Software Engineer student and a Web Developer."}<br/>
-          {"Currently i'm interested in being part of a team of developers and make challenging proyects. "}<br/>
+          {"Currently interested in being part of a team of developers and make challenging proyects. "}<br/>
           I consider myself
           as a problem-solver kind
           of person, proactive and a
