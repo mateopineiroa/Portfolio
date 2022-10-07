@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Mateo's Portfolio</title>
+        <title>{"Mateo's Portfolio"}</title>
         <meta name="description" content="Portfolio de Mateo Piñeiro" />
         <link rel="icon" href="/me.png" />
       </Head>
