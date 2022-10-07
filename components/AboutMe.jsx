@@ -20,7 +20,7 @@ const AboutMe = () => {
           really good teammate.</p>
       </div>
       <div className="self-center p-10">
-        <Image src={me} width={300} height={300} />
+        <Image src={me} alt="" width={300} height={300} />
       </div>
     </div>
   )
