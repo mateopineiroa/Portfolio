@@ -10,13 +10,13 @@ const Projects = () => {
       <h3 className='self-center text-4xl'>Proyects</h3>
       <div className='flex flex-col md:grid  p-10 md:grid-cols-3 md:grid-rows-2 gap-4 md:w-full self-center'>
         <a className="mx-auto" href="https://meek-syrniki-76a53e.netlify.app/" target="_blank" rel="noreferrer" >
-          <Image src={realState} alt="Proyect image"  objectFit="contain" width={300} height={300} />
+          <Image src={pacientAdmin} alt="Proyect image" objectFit="contain" width={300} height={300} />
         </a>
         <a className="mx-auto" href="https://symphonious-pavlova-924168.netlify.app/" target="_blank" rel="noreferrer" >
           <Image src={businessManager} alt="Proyect image" objectFit="contain" width={300} height={300} />
         </a>
-        <a className="mx-auto" href="https://symphonious-pavlova-924168.netlify.app/" target="_blank" rel="noreferrer" >
-          <Image src={pacientAdmin} alt="Proyect image" objectFit="contain" width={300} height={300} />
+        <a className="mx-auto" href="https://inmobiliaria-pineiro.vercel.app/" target="_blank" rel="noreferrer" >
+          <Image src={realState} alt="Proyect image"  objectFit="contain" width={300} height={300} />
         </a>
         
       </div>
