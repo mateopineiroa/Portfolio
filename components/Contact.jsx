@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 import linkedin from "../public/contact/linkedin.png"
 import wsp from "../public/contact/wsp.png"
 import github from "../public/contact/github.png"
