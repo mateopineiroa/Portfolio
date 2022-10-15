@@ -1,11 +1,26 @@
+import React from "react"
 import Image from "next/image"
-import Link from "next/link"
 import businessManager from "../public/BusinessManager.png"
 import realState from "../public/realState.png"
 import pacientAdmin from "../public/pacientAdmin.png"
 import portfolio from "../public/portfolio.png"
+import { Button } from "@nextui-org/react"
+import ModalComponent from "./ModalComponent"
 
 const Projects = () => {
+
+  const Proyects = [
+    {
+      title:"Portfolio",
+      description: "NextJS proyect using tailwind and nextUI library for style.",
+      github: "https://github.com/mateopineiroa/Portfolio",
+      web: "https://portfolio-mateopineiroa.vercel.app/",
+      technologies: ["NextJS", "JavaScript", "Tailwind", "NextUI", "HTML"],
+      img: portfolio
+    }
+  ]
+
+
   return (
     <div id="projects" className='flex flex-col w-screen min-h-screen justify-center'>
       <h3 className='self-center text-4xl'>Proyects</h3>
@@ -23,6 +38,19 @@ const Projects = () => {
           <Image src={realState} alt="Proyect image"  objectFit="contain" width={300} height={300} />
         </a>
         
+        
+
+        <ModalComponent img={portfolio} />
+
+
+
+
+
+
+
+
+
+
       </div>
     </div>
   )
