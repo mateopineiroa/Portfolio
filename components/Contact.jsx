@@ -10,9 +10,9 @@ const Contact = () => {
     navigator.clipboard.writeText("mateopineiro2001@gmail.com");
   }
   return (
-    <div id="contact" className='flex flex-col w-screen h-screen justify-center'>
+    <div id="contact" className='flex flex-col w-screen min-h-screen justify-center'>
       <h3 className='self-center text-4xl'>Contact</h3>
-      <div className="self-center grid grid-cols-2 md:grid-cols-4 w-1/3 mt-8 gap-9">
+      <div className="self-center grid grid-cols-2 md:grid-cols-4 w-full p-4 md:w-1/3 mt-8 gap-9">
         <div className="flex flex-col justify-center align-middle cursor-pointer">
           <a href={"https://linkedin.com/in/mateopineiro"} target="_blank" rel="noreferrer">
             <Image alt="" src={linkedin} objectFit="contain" width={300} height={300} />

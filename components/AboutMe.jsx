@@ -4,7 +4,7 @@ import me from "../public/me.png"
 
 const AboutMe = () => {
   return (
-    <div id="aboutme" className="w-screen h-screen bg-dark flex flex-col md:flex-row align-middle justify-center">
+    <div id="aboutme" className="w-screen min-h-screen bg-dark flex flex-col md:flex-row align-middle justify-center">
       <div className="p-10 md:max-w-lg md:self-center">
         <h2 className=" text-4xl mb-4 ">About Me</h2>
         <p className="">{"I'm a Software Engineer student and a Web Developer."}<br/>

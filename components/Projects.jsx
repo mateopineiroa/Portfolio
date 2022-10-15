@@ -7,7 +7,7 @@ import portfolio from "../public/portfolio.png"
 
 const Projects = () => {
   return (
-    <div id="projects" className='flex flex-col w-screen h-screen justify-center'>
+    <div id="projects" className='flex flex-col w-screen min-h-screen justify-center'>
       <h3 className='self-center text-4xl'>Proyects</h3>
       <div className='flex flex-col md:grid  p-10 md:grid-cols-3 md:grid-rows-2 gap-4 md:w-full self-center'>
         <a className="mx-auto" href="https://portfolio-mateopineiroa.vercel.app/" target="_blank" rel="noreferrer" >

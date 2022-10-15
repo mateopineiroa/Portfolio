@@ -1,7 +1,7 @@
 
 const Intro = ({ scrollAboutMe }) => {
   return (
-    <div id="intro" className="px-10 h-screen w-screen flex relative -top-28 flex-col align-middle justify-center ">
+    <div id="intro" className="px-10 min-h-screen w-screen flex relative -top-28 flex-col align-middle justify-center ">
 
         <h1 className=" text-4xl self-center">{"Hi! I'm"} <span className=" text-violet-700">Mateo</span></h1>
 
