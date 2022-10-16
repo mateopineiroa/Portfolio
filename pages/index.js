@@ -65,7 +65,7 @@ export default function Home() {
         scrollContact={scrollContact} 
         />
 
-      <main>
+      <main className='bg-[#F2F2F2]'>
         <Intro scrollAboutMe={scrollAboutMe} />
         <AboutMe />
         <Skills />
