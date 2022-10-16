@@ -39,7 +39,7 @@ const Contact = ({scrollIntro}) => {
         </div>
       </div>
       <>
-      <p onClick={scrollIntro} className={`absolute bottom-12 self-center  hover:cursor-pointer`}>Previous</p>
+      <p onClick={scrollIntro} className={`absolute bottom-12 self-center  hover:cursor-pointer`}>Intro</p>
       <span onClick={scrollIntro} className={`material-symbols-outlined absolute bottom-6 self-center scale-150 hover:cursor-pointer`}>
         expand_less
       </span>
