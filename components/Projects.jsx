@@ -1,13 +1,12 @@
 import React from "react"
-import Image from "next/image"
 import businessManager from "../public/BusinessManager.png"
 import realState from "../public/realState.png"
 import pacientAdmin from "../public/pacientAdmin.png"
 import portfolio from "../public/portfolio.png"
-import { Button } from "@nextui-org/react"
 import ModalComponent from "./ModalComponent"
+import SeeMore from "./SeeMore"
 
-const Projects = () => {
+const Projects = ({scrollContact}) => {
 
   const Proyects = [
     {
@@ -42,28 +41,15 @@ const Projects = () => {
   ]
 
   return (
-    <div id="projects" className='flex flex-col w-screen min-h-screen justify-center'>
-      <h3 className='self-center text-4xl'>Proyects</h3>
-      <div className='flex flex-col md:grid  p-10 md:grid-cols-3 md:grid-rows-2 md:gap-11 md:w-full xl:w-10/12 2xl:w-3/4 self-center'>
-        {/* <a className="mx-auto" href="https://portfolio-mateopineiroa.vercel.app/" target="_blank" rel="noreferrer" >
-          <Image src={portfolio} alt="Proyect image"  objectFit="contain" width={300} height={300} />
-        </a>
-        <a className="mx-auto" href="https://poetic-biscuit-88f557.netlify.app" target="_blank" rel="noreferrer" >
-          <Image src={pacientAdmin} alt="Proyect image" objectFit="contain" width={300} height={300} />
-        </a>
-        <a className="mx-auto" href="https://symphonious-pavlova-924168.netlify.app/" target="_blank" rel="noreferrer" >
-          <Image src={businessManager} alt="Proyect image" objectFit="contain" width={300} height={300} />
-        </a>
-        <a className="mx-auto" href="https://inmobiliaria-pineiro.vercel.app/" target="_blank" rel="noreferrer" >
-          <Image src={realState} alt="Proyect image"  objectFit="contain" width={300} height={300} />
-        </a> */}
-        
-        
+    <div className="flex flex-col">
 
-        
-        { Proyects && Proyects.map( (proyect) => {
-          return (
-            <ModalComponent 
+      <div id="projects" className='flex flex-col w-screen min-h-screen justify-center pb-12'>
+        <h3 className='self-center text-4xl mt-44'>Proyects</h3>
+        <div className='flex flex-col md:grid  p-10 md:grid-cols-3 md:grid-rows-2 md:gap-11 md:w-full xl:w-10/12 2xl:w-3/4 self-center'>
+
+          { Proyects && Proyects.map( (proyect) => {
+            return (
+              <ModalComponent 
               key={proyect.title}
               title={proyect.title}
               description={proyect.description}
@@ -71,19 +57,13 @@ const Projects = () => {
               web={proyect.web}
               technologies={proyect.technologies}
               img={proyect.img} />
-          )
-        })}
-        
+              )
+            })}
 
 
-
-
-
-
-
-
-
+        </div>
       </div>
+      <SeeMore scrollTo={scrollContact} position={20} />
     </div>
   )
 }

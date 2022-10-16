@@ -5,7 +5,7 @@ import AboutMe from '../components/AboutMe'
 import Skills from '../components/Skills'
 import Projects from '../components/Projects'
 import Contact from '../components/Contact'
-import { Modal } from '@nextui-org/react'
+
 
 export default function Home() {
   const scrollIntro = () => {
@@ -67,10 +67,10 @@ export default function Home() {
 
       <main className='bg-[#F2F2F2]'>
         <Intro scrollAboutMe={scrollAboutMe} />
-        <AboutMe />
-        <Skills />
-        <Projects />
-        <Contact />
+        <AboutMe scrollSkills={scrollSkills} />
+        <Skills scrollProjects={scrollProjects}/>
+        <Projects scrollContact={scrollContact} />
+        <Contact scrollIntro={scrollIntro} />
       </main>
       
       <footer>
