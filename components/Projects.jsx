@@ -4,11 +4,11 @@ import realState from "../public/realState.png"
 import pacientAdmin from "../public/pacientAdmin.png"
 import portfolio from "../public/portfolio.png"
 import ModalComponent from "./ModalComponent"
-import SeeMore from "./SeeMore"
+
 
 const Projects = ({scrollContact}) => {
 
-  const Proyects = [
+  const Projects = [
     {
       title:"Portfolio",
       description: "NextJS app using tailwind and NextUI library for style.",
@@ -33,7 +33,7 @@ const Projects = ({scrollContact}) => {
     },
     {
       title: "Real State Web",
-      description: "JavaScript proyect with scss and bootstrap for style. Standard five sections web page for real state business.",
+      description: "JavaScript project with scss and bootstrap for style. Standard five sections web page for real state business.",
       github: "https://github.com/mateopineiroa/Inmobiliaria-Pineiro",
       web:"https://inmobiliaria-pineiro.vercel.app/",
       img: realState
@@ -44,19 +44,19 @@ const Projects = ({scrollContact}) => {
     <div className="flex flex-col">
 
       <div id="projects" className='flex flex-col w-screen min-h-screen justify-center pb-12'>
-        <h3 className='self-center text-4xl mt-44'>Proyects</h3>
+        <h3 className='self-center text-4xl mt-44'>Projects</h3>
         <div className='flex flex-col md:grid  p-10 md:grid-cols-3 md:grid-rows-2 md:gap-11 md:w-full xl:w-10/12 2xl:w-3/4 self-center'>
 
-          { Proyects && Proyects.map( (proyect) => {
+          { Projects && Projects.map( (project) => {
             return (
               <ModalComponent 
-              key={proyect.title}
-              title={proyect.title}
-              description={proyect.description}
-              github={proyect.github}
-              web={proyect.web}
-              technologies={proyect.technologies}
-              img={proyect.img} />
+              key={project.title}
+              title={project.title}
+              description={project.description}
+              github={project.github}
+              web={project.web}
+              technologies={project.technologies}
+              img={project.img} />
               )
             })}
 
