@@ -1,7 +1,6 @@
 import Image from "next/image"
 import me from "../public/me.png"
-import SeeMore from "./SeeMore"
-
+import { Text } from "@nextui-org/react"
 
 const AboutMe = ({scrollSkills}) => {
   return (
@@ -10,8 +9,9 @@ const AboutMe = ({scrollSkills}) => {
 
         <div id="aboutme" className="w-screen min-h-screen pb-14 flex flex-col md:flex-row align-middle justify-center">
           <div className="p-10 md:max-w-lg md:self-center">
-            <h2 className=" text-4xl mb-4 mt-30">About Me</h2>
-            <p className="">{"I'm a Software Engineer student and a Web Developer."}<br/>
+            <h2 className=" text-4xl mb-4 mt-32">About Me</h2>
+
+            <p className=" text-lg">{"I'm a Software Engineer student and a Web Developer."}<br/>
               {"Currently interested in being part of a team of developers and make challenging proyects. "}<br/>
               I consider myself
               as a problem-solver kind
@@ -23,7 +23,10 @@ const AboutMe = ({scrollSkills}) => {
             <Image src={me} alt="" width={300} height={300} />
           </div>
         </div>
-        <SeeMore scrollTo={scrollSkills} position={20} />
+        <p onClick={scrollSkills} className={`relative bottom-20 self-center  hover:cursor-pointer`}>See more</p>
+        <span onClick={scrollSkills} className={`material-symbols-outlined relative bottom-20 self-center scale-150 hover:cursor-pointer`}>
+          expand_more
+        </span>
       </div>
     </>
   )

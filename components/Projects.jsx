@@ -63,7 +63,10 @@ const Projects = ({scrollContact}) => {
 
         </div>
       </div>
-      <SeeMore scrollTo={scrollContact} position={20} />
+      <p onClick={scrollContact} className={`relative bottom-20 self-center  hover:cursor-pointer`}>See more</p>
+      <span onClick={scrollContact} className={`material-symbols-outlined relative bottom-20 self-center scale-150 hover:cursor-pointer`}>
+        expand_more
+      </span>
     </div>
   )
 }

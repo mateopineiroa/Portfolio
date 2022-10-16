@@ -27,7 +27,10 @@ const Skills = ({scrollProjects}) => {
           <Image alt="skill" objectFit="contain" src={c} width={100} height={100} />
         </div>
       </div>
-      <SeeMore scrollTo={scrollProjects} position={20} />
+      <p onClick={scrollProjects} className={`relative bottom-20 self-center  hover:cursor-pointer`}>See more</p>
+      <span onClick={scrollProjects} className={`material-symbols-outlined relative bottom-20 self-center scale-150 hover:cursor-pointer`}>
+        expand_more
+      </span>
     </div>
   )
 }

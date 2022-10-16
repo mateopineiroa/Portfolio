@@ -6,7 +6,7 @@ const Intro = ({ scrollAboutMe }) => {
   return (
     <div className="flex flex-col">
 
-      <div id="intro" className="px-10 min-h-screen w-screen flex relative -top-28 flex-col align-middle justify-center ">
+      <div id="intro" className="px-10 min-h-screen w-screen flex relative -top-36 flex-col align-middle justify-center ">
 
         <div className="self-center">
           <Text b size={40} css={{display: "inline"}}>{"Hi! I'm "}</Text>
@@ -31,7 +31,10 @@ const Intro = ({ scrollAboutMe }) => {
       </span> */}
 
       </div>
-      <SeeMore scrollTo={scrollAboutMe} position={36} />
+      <p onClick={scrollAboutMe} className={`relative bottom-56 phone:bottom-36 self-center  hover:cursor-pointer`}>See more</p>
+        <span onClick={scrollAboutMe} className={`material-symbols-outlined relative bottom-56 phone:bottom-36 self-center scale-150 hover:cursor-pointer`}>
+          expand_more
+        </span>
     </div>
   )
 }
