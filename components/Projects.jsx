@@ -33,9 +33,9 @@ const Projects = ({scrollContact}) => {
     },
     {
       title: "Real State Web",
-      description: "JavaScript project with scss and bootstrap for style. Standard five sections web page for real state business.",
+      description: "JavaScript project with scss and bootstrap for style. Standard five sections web page for the company Inmobilaria Aguilera (Real State business).",
       github: "https://github.com/mateopineiroa/Inmobiliaria-Pineiro",
-      web:"https://inmobiliaria-pineiro.vercel.app/",
+      web:"https://www.aguilerainmobiliaria.com/",
       img: realState
     }
   ]
