@@ -28,7 +28,7 @@ const Contact = ({scrollIntro}) => {
           <a className="self-center" href={"https://api.whatsapp.com/send?phone=59898557448&text=Estoy%20interesado/a%20en%20hablar"} target="_blank" rel="noreferrer">
             <Image alt="" src={wsp} objectFit="contain" width={300} height={300} />
           </a>
-            <p onClick={() => copyToClipboard("+598 98 557 448")} className="text-center self-center hover:cursor-pointer text-xs">+598 98 557 448<span class="material-symbols-outlined text-xs scale-75">
+            <p onClick={() => copyToClipboard("+598 98 557 448")} className="text-center self-center hover:cursor-pointer text-xs">+598 98 557 448<span className="material-symbols-outlined text-xs scale-75">
             content_copy
             </span></p>
         </div>
@@ -36,7 +36,7 @@ const Contact = ({scrollIntro}) => {
           <a className="cursor-pointer self-center" href={"mailto:mateopineiro2001@gmail.com"} target="_blank" rel="noreferrer">
             <Image alt="" src={mail} objectFit="contain" width={300} height={300} />
           </a>
-          <p className="hover:cursor-pointer text-center w-full text-xs" onClick={() => copyToClipboard("mateopineiro2001@gmail.com")}>Copy to Clipboard<span class="material-symbols-outlined text-xs scale-75">
+          <p className="hover:cursor-pointer text-center w-full text-xs" onClick={() => copyToClipboard("mateopineiro2001@gmail.com")}>Copy to Clipboard<span className="material-symbols-outlined text-xs scale-75">
           content_copy
           </span></p>
         </div>
