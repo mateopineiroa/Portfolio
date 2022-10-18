@@ -26,7 +26,7 @@ const Projects = ({scrollContact}) => {
     },
     {
       title: "Business Manager",
-      description: "ReactJS app using tailwind for style. The idea of the project is to make the assignment of tasks to employees as efficient as possible.",
+      description: "ReactJS app using tailwind for style. The idea of the project is to make the assignment of tasks to employees as efficient as possible. (Project in process)",
       github: "https://github.com/mateopineiroa/Business-Manager",
       web:"https://symphonious-pavlova-924168.netlify.app/",
       img: businessManager
