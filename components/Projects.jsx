@@ -44,7 +44,7 @@ const Projects = ({scrollContact}) => {
     <div className="flex flex-col">
 
       <div id="projects" className='flex flex-col w-screen min-h-screen justify-center pb-12'>
-        <h3 className='self-center text-4xl mt-44'>Projects</h3>
+        <h3 className='self-center text-4xl mt-40 sm:mt-32'>Projects</h3>
         <div className='flex flex-col md:grid  p-10 md:grid-cols-3 md:grid-rows-2 md:gap-11 md:w-full xl:w-10/12 2xl:w-3/4 self-center'>
 
           { Projects && Projects.map( (project) => {
