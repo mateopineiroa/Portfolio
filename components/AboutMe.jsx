@@ -20,7 +20,7 @@ const AboutMe = ({scrollSkills}) => {
               really good teammate.</p>
           </div>
           <div className="self-center p-10">
-            <Image src={me} alt="" width={300} height={300} />
+            <Image src={me} alt="My picture" width={300} height={300} />
           </div>
         </div>
         <p onClick={scrollSkills} className={`relative bottom-20 self-center  hover:cursor-pointer`}>See more</p>
