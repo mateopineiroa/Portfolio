@@ -15,7 +15,7 @@ const ModalComponent = ({ title, description, technologies, github, web, img}) =
 
   return (
     <div className='my-4'>
-      <Image src={img} onClick={handler} className="hover:cursor-pointer" />
+      <Image src={img} alt={`${title} proyect image`} onClick={handler} className="hover:cursor-pointer" />
       <Modal
         closeButton
         aria-labelledby="modal-title"
