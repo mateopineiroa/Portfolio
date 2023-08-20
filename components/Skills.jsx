@@ -1,38 +1,51 @@
-import html from "../public/skills/html.png"
-import js from "../public/skills/js.png"
-import react from "../public/skills/react.png"
-import c from "../public/skills/c++.png"
-import nextjs from "../public/skills/nextjs.png"
-import css from "../public/skills/css.png"
-import bootstrap from "../public/skills/bootstrap.png"
-import tailwind from "../public/skills/tailwind.png"
-import Image from "next/image"
-import SeeMore from "./SeeMore"
+import html from "../public/skills/html.png";
+import js from "../public/skills/js.png";
+import react from "../public/skills/react.png";
+import c from "../public/skills/c++.png";
+import nextjs from "../public/skills/nextjs.png";
+import css from "../public/skills/css.png";
+import bootstrap from "../public/skills/bootstrap.png";
+import tailwind from "../public/skills/tailwind.png";
+import Image from "next/image";
+import SeeMore from "./SeeMore";
+import { forwardRef } from "react";
 
-const Skills = ({scrollProjects}) => {
+const IMAGES = [
+  html,
+css,
+js,
+tailwind,
+bootstrap,
+react,
+nextjs,
+c,
+]
+
+const Skills = forwardRef(({ scrollProjects }, ref) => {
   return (
-    <div className="flex flex-col">
-
-      <div id="skills" className='flex flex-col w-screen min-h-screen justify-center '>
-        <h3 className='text-4xl self-center'>Skills</h3>
-        <div className='grid grid-cols-3 mx-9 md:grid-cols-4 md:grid-rows-2 gap-9 mt-8 md:w-1/2 xl:w-1/3 self-center'>
-
-          <Image alt="skill" objectFit="contain" src={html} width={100} height={100} />
-          <Image alt="skill" objectFit="contain" src={css} width={100} height={100} />
-          <Image alt="skill" objectFit="contain" src={js} width={100} height={100} />
-          <Image alt="skill" objectFit="contain" src={tailwind} width={100} height={100} />
-          <Image alt="skill" objectFit="contain" src={bootstrap} width={100} height={100} />
-          <Image alt="skill" objectFit="contain" src={react} width={100} height={100} />
-          <Image alt="skill" objectFit="contain" src={nextjs} width={100} height={100} />
-          <Image alt="skill" objectFit="contain" src={c} width={100} height={100} />
+    <section className="flex flex-col">
+      <div
+        ref={ref}
+        id="skills"
+        className="flex flex-col w-screen min-h-screen justify-center "
+      >
+        <h3 className="text-4xl self-center">Skills</h3>
+        <div className="grid grid-cols-3 mx-9 md:grid-cols-4 md:grid-rows-2 gap-9 mt-8 md:w-1/2 xl:w-1/3 self-center">
+          {IMAGES.map((src) => 
+            <Image
+              key={src}
+              alt="skill"
+              src={src}
+              width={100}
+              height={100}
+            />
+          )}
         </div>
       </div>
-      <p onClick={scrollProjects} className={`relative bottom-20 self-center  hover:cursor-pointer`}>See more</p>
-      <span onClick={scrollProjects} className={`material-symbols-outlined relative bottom-20 self-center scale-150 hover:cursor-pointer`}>
-        expand_more
-      </span>
-    </div>
-  )
-}
+    </section>
+  );
+});
 
-export default Skills
+Skills.displayName = "Skills";
+
+export default Skills;

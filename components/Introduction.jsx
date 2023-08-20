@@ -1,42 +1,48 @@
-import SeeMore from "./SeeMore"
-import { Text } from "@nextui-org/react"
+import { forwardRef, useEffect, useState } from "react";
+import SeeMore from "./SeeMore";
+import { Text } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
-
-const Intro = ({ scrollAboutMe }) => {
+const Intro = forwardRef(({ scrollAboutMe }, ref) => {
   return (
-    <div className="flex flex-col">
-
-      <div id="intro" className="px-10 min-h-screen w-screen flex relative -top-36 flex-col align-middle justify-center ">
-
+    <section className="flex flex-col">
+      <div
+        ref={ref}
+        id="intro"
+        className="-top-30 relative flex min-h-screen w-screen flex-col justify-center px-10 align-middle  "
+      >
         <div className="self-center">
-          <Text b size={40} css={{display: "inline"}}>{"Hi! I'm "}</Text>
+          <Text
+            b
+            size={40}
+            css={{ display: "inline" }}
+            className="dark:text-gray-200"
+          >
+            {"Hi! I'm "}
+          </Text>
           <Text
             h1
             size={40}
             css={{
               textGradient: "45deg, $blue800 -20%, $blue400 100%",
-              display: "inline"
             }}
+            className="inline "
             weight="bold"
-            >
+          >
             Mateo
           </Text>
         </div>
-          
-        <Text h4 css={{alignSelf:"center", textAlign: "center"}}>{"I'm a Front-End Developer currently focused on building responsive front-end applications while learning back-end technologies."}</Text>
-          
-        {/* <p onClick={scrollAboutMe} className="absolute bottom-6 self-center hover:cursor-pointer">See more</p>
-        <span onClick={scrollAboutMe} className="material-symbols-outlined absolute -bottom-3 self-center scale-150 hover:cursor-pointer">
-        expand_more
-      </span> */}
 
+        <Text h4 className="self-center text-center dark:text-gray-200">
+          {
+            "I'm a Software Developer currently focused on building responsive web applications."
+          }
+        </Text>
       </div>
-      <p onClick={scrollAboutMe} className={`relative bottom-56 phone:bottom-36 self-center  hover:cursor-pointer`}>See more</p>
-        <span onClick={scrollAboutMe} className={`material-symbols-outlined relative bottom-56 phone:bottom-36 self-center scale-150 hover:cursor-pointer`}>
-          expand_more
-        </span>
-    </div>
-  )
-}
+    </section>
+  );
+});
 
-export default Intro
+Intro.displayName = "Intro";
+
+export default Intro;
