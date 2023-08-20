@@ -4,11 +4,23 @@ import { useEffect, useRef, useState } from "react";
 import { SiSendinblue } from "react-icons/si";
 import { AiOutlineUser } from "react-icons/ai";
 
+const QUESTIONS = [
+  "Is Mateo a good fit for a web app?",
+  "Is Mateo a good fit for a mobile app?",
+  "What can you tell me about Mateo?",
+];
+
 export default function Chat() {
   const [numDots, setNumDots] = useState(3);
-  const [loadingText, setLoadingText] = useState("Thinking...");
-  const { messages, input, handleInputChange, handleSubmit, error, isLoading } =
-    useChat();
+  const {
+    messages,
+    input,
+    handleInputChange,
+    handleSubmit,
+    error,
+    isLoading,
+    setInput,
+  } = useChat();
 
   const ref = useRef();
 
@@ -18,17 +30,6 @@ export default function Chat() {
       container.scrollTop = 9999;
     }
   }, [isLoading, messages]);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const dots = ".".repeat(numDots);
-      setLoadingText(`Thinking${dots}`);
-
-      setNumDots((numDots % 3) + 1);
-    }, 500);
-
-    return () => clearInterval(intervalId);
-  }, [numDots]);
 
   return (
     <>
@@ -67,13 +68,11 @@ export default function Chat() {
         ))}
       </div>
       <form onSubmit={handleSubmit} autoComplete="off">
-        <div className="col-span-full">
-          <div className="relative mt-2">
+        <div className="flex flex-col gap-4">
+          <div className="relative">
             <input
               value={input}
-              onChange={(e) => {
-                handleInputChange(e);
-              }}
+              onChange={handleInputChange}
               id="about"
               name="about"
               placeholder="Ask AI why Mateo is a good fit for your project"
@@ -91,9 +90,28 @@ export default function Chat() {
               </button>
             </div>
           </div>
+          {QUESTIONS.map((question) => (
+            <Button
+              key={question}
+              size="xs"
+              css={{
+                width: "fit-content",
+                paddingTop: "1rem",
+                paddingBottom: "1rem",
+                paddingRight: "1.5rem",
+                paddingLeft: "1.5rem",
+              }}
+              variant="faded"
+              onClick={() => {
+                setInput(question);
+              }}
+            >
+              {question}
+            </Button>
+          ))}
         </div>
 
-        {error && <p>Error: {error.message}</p>}
+        {error && <p className="p-4 text-red-600">Error: {error.message}</p>}
       </form>
     </>
   );

@@ -8,7 +8,7 @@ const AiHelper = forwardRef((_, ref) => {
       <div
         ref={ref}
         id="intro"
-        className="flex min-h-screen w-screen max-w-4xl flex-col justify-center gap-2 px-10 align-middle "
+        className="flex min-h-screen w-screen max-w-4xl flex-col justify-center gap-4 px-10 align-middle "
       >
         <Text
           h1
