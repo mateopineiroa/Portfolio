@@ -1,25 +1,42 @@
 import Image from "next/image";
+import { forwardRef } from "react";
+import { Text } from "@nextui-org/react";
+
 import linkedin from "../public/contact/linkedin.png";
 import github from "../public/contact/github.png";
 import mail from "../public/contact/mail.png";
-import { forwardRef } from "react";
 
 const SUBJECT = "Meeting proposal";
 const BODY = "Hi Mateo, I want to meet you!";
 
 const Contact = forwardRef((_, ref) => {
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
+  const copyToClipboard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (err) {
+      if (err instanceof Error) {
+        console.log({ error: err.message });
+      }
+    }
   };
   return (
     <section
       ref={ref}
       id="contact"
-      className="flex flex-col w-screen min-h-screen justify-center"
+      className="flex min-h-screen w-screen flex-col justify-center"
     >
-      <h3 className="self-center text-4xl mt-44">Contact</h3>
-      <div className="self-center grid grid-cols-2 md:grid-cols-3 w-full p-4 lg:w-1/2  mt-8 mb-24 gap-9">
-        <div className="flex flex-col justify-center align-middle cursor-pointer">
+      <Text
+        h1
+        size={40}
+        css={{
+          textGradient: "45deg, $gray900 -20%, $gray400 100%",
+        }}
+        className="inline text-center font-bold"
+      >
+        {"Let's talk!"}
+      </Text>
+      <div className="mb-24 mt-8 grid w-full grid-cols-2 gap-9 self-center  p-4 md:grid-cols-3 lg:w-1/2">
+        <div className="flex cursor-pointer flex-col justify-center align-middle">
           <a
             className="self-center"
             href="https://linkedin.com/in/mateopineiro"
@@ -28,25 +45,21 @@ const Contact = forwardRef((_, ref) => {
           >
             <Image
               alt="link linkedin"
+              draggable="false"
               src={linkedin}
               width={300}
               height={300}
             />
           </a>
         </div>
-        <div className="flex flex-col justify-center align-middle cursor-pointer">
+        <div className="flex cursor-pointer flex-col justify-center align-middle">
           <a
             className="self-center"
             href={"https://github.com/mateopineiroa"}
             target="_blank"
             rel="noreferrer"
           >
-            <Image
-              alt="link github"
-              src={github}
-              width={300}
-              height={300}
-            />
+            <Image alt="link github" src={github} width={300} height={300} />
           </a>
         </div>
 
@@ -62,14 +75,15 @@ const Contact = forwardRef((_, ref) => {
               src={mail}
               width={300}
               height={300}
+              draggable="false"
             />
           </a>
           <p
-            className="hover:cursor-pointer text-center w-full text-xs"
+            className="w-full text-center text-xs hover:cursor-pointer"
             onClick={() => copyToClipboard("mateopineiro2001@gmail.com")}
           >
             Copy to Clipboard
-            <span className="material-symbols-outlined text-xs scale-75">
+            <span className="material-symbols-outlined scale-75 text-xs">
               content_copy
             </span>
           </p>

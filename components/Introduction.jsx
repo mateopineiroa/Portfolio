@@ -33,9 +33,13 @@ const Intro = forwardRef(({ scrollAboutMe }, ref) => {
           </Text>
         </div>
 
-        <Text h4 className="self-center text-center dark:text-gray-200">
+        <Text
+          style={{ textWrap: "balance" }}
+          h4
+          className="self-center text-center dark:text-gray-200"
+        >
           {
-            "I'm a Software Developer currently focused on building responsive web applications."
+            "I'm a Software Developer currently focused on building web applications."
           }
         </Text>
       </div>

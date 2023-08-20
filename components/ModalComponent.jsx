@@ -10,13 +10,13 @@ const ModalComponent = ({
   github,
   web,
   img,
+  disabled,
 }) => {
   const [visible, setVisible] = useState(false);
   const handler = () => setVisible(true);
 
   const closeHandler = () => {
     setVisible(false);
-    console.log("closed");
   };
 
   return (
@@ -26,6 +26,7 @@ const ModalComponent = ({
         alt={`${title} proyect image`}
         onClick={handler}
         className="hover:cursor-pointer"
+        draggable="false"
       />
       <Modal
         closeButton
@@ -42,19 +43,31 @@ const ModalComponent = ({
             <Text b size={23}>
               {title}
             </Text>
-            <Image src={img} alt={`${title} proyect image`} />
+            <Image src={img} alt={`${title} proyect image`} draggable="false" />
           </Text>
         </Modal.Header>
 
         <Modal.Body>
           <Text>{description}</Text>
           <NextLink href={web}>
-            <Link href={web} target="_blank" color="primary" isExternal>
+            <Link
+              href={disabled ? "#" : web}
+              className={`${disabled && "cursor-not-allowed"}`}
+              target={disabled ? undefined : "_blank"}
+              color="primary"
+              isExternal
+            >
               Web
             </Link>
           </NextLink>
           <NextLink href={web}>
-            <Link href={github} target="_blank" color="primary" isExternal>
+            <Link
+              href={disabled ? "#" : github}
+              className={`${disabled && "cursor-not-allowed"}`}
+              target={disabled ? undefined : "_blank"}
+              color="primary"
+              isExternal
+            >
               GitHub
             </Link>
           </NextLink>

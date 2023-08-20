@@ -4,6 +4,7 @@ import realState from "../public/realState.png";
 import pacientAdmin from "../public/pacientAdmin.png";
 import portfolio from "../public/portfolio.png";
 import ModalComponent from "./ModalComponent";
+import { Text } from "@nextui-org/react";
 
 const ProjectsData = [
   {
@@ -48,21 +49,42 @@ const Projects = forwardRef(({ scrollContact }, ref) => {
         id="projects"
         className="flex min-h-screen w-screen flex-col justify-center pb-12"
       >
-        <h3 className="mt-40 self-center text-4xl sm:mt-32">Projects</h3>
+        <Text
+          h2
+          size={40}
+          css={{
+            textGradient: "45deg, $gray900 -20%, $gray400 100%",
+          }}
+          className="inline self-center  font-bold"
+        >
+          Personal Projects
+        </Text>
+
         <div className="flex flex-col self-center  p-10 md:grid md:w-full md:grid-cols-3 md:grid-rows-2 md:gap-11 xl:w-10/12 2xl:w-3/4">
-          {ProjectsData.map((project) => {
-            return (
-              <ModalComponent
-                key={project.title}
-                title={project.title}
-                description={project.description}
-                github={project.github}
-                web={project.web}
-                technologies={project.technologies}
-                img={project.img}
-              />
-            );
-          })}
+          {ProjectsData.map(
+            ({
+              title,
+              description,
+              web,
+              github,
+              img,
+              technologies,
+              disabled,
+            }) => {
+              return (
+                <ModalComponent
+                  key={title}
+                  title={title}
+                  description={description}
+                  github={github}
+                  web={web}
+                  technologies={technologies}
+                  img={img}
+                  disabled={disabled}
+                />
+              );
+            },
+          )}
         </div>
       </div>
     </section>
