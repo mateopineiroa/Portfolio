@@ -31,7 +31,7 @@ const Skills = forwardRef(({ scrollProjects }, ref) => {
         >
           Favorite Technologies
         </Text>
-        <div className="mx-9 mt-8 grid grid-cols-2 gap-9 self-center sm:grid-cols-3 md:w-1/2 md:grid-cols-4 md:grid-rows-2 xl:w-1/3">
+        <div className="mx-9 mt-8 grid grid-cols-2 items-center justify-items-center gap-9 self-center sm:grid-cols-3 md:w-1/2 md:grid-cols-4 md:grid-rows-2 xl:w-1/3">
           {IMAGES.map((src) => (
             <Image
               key={JSON.stringify(src)}
