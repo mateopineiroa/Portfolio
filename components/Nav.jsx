@@ -24,12 +24,9 @@ const Nav = ({ Sections }) => {
       );
     }
   };
-  console.log(visibleSection);
-  console.log(mobileMenuOpen);
+
   useEffect(() => {
-    if (!mobileMenuOpen) {
-      // handleScroll();
-    }
+    handleScroll();
   }, [mobileMenuOpen, visibleSection]);
 
   useEffect(() => {
