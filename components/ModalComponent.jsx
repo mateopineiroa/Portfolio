@@ -1,5 +1,14 @@
 import { useState } from "react";
-import { Modal, Button, Text, Link } from "@nextui-org/react";
+import {
+  Modal,
+  Button,
+  Link,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+  ModalContent,
+} from "@nextui-org/react";
 import Image from "next/image";
 import NextLink from "next/link";
 
@@ -13,6 +22,7 @@ const ModalComponent = ({
   disabled,
 }) => {
   const [visible, setVisible] = useState(false);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const handler = () => setVisible(true);
 
   const closeHandler = () => {
@@ -24,60 +34,57 @@ const ModalComponent = ({
       <Image
         src={img}
         alt={`${title} proyect image`}
-        onClick={handler}
+        onClick={onOpen}
         className="hover:cursor-pointer"
         draggable="false"
       />
       <Modal
         closeButton
-        aria-labelledby="modal-title"
-        open={visible}
-        onClose={closeHandler}
-        blur
-        width={"1000px"}
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
         className="hover:cursor-default"
       >
-        <Modal.Header>
-          <Text id="modal-title" size={23}>
-            Proyect: {""}
-            <Text b size={23}>
-              {title}
-            </Text>
-            <Image src={img} alt={`${title} proyect image`} draggable="false" />
-          </Text>
-        </Modal.Header>
+        <ModalContent>
+          {(onOpen) => (
+            <>
+              <ModalHeader>
+                <p>
+                  Proyect: {""}
+                  {title}
+                  <Image
+                    src={img}
+                    alt={`${title} proyect image`}
+                    draggable="false"
+                  />
+                </p>
+              </ModalHeader>
 
-        <Modal.Body>
-          <Text>{description}</Text>
-          <NextLink href={web}>
-            <Link
-              href={disabled ? "#" : web}
-              className={`${disabled && "cursor-not-allowed"}`}
-              target={disabled ? undefined : "_blank"}
-              color="primary"
-              isExternal
-            >
-              Web
-            </Link>
-          </NextLink>
-          <NextLink href={web}>
-            <Link
-              href={disabled ? "#" : github}
-              className={`${disabled && "cursor-not-allowed"}`}
-              target={disabled ? undefined : "_blank"}
-              color="primary"
-              isExternal
-            >
-              GitHub
-            </Link>
-          </NextLink>
-        </Modal.Body>
+              <ModalBody>
+                <p>{description}</p>
+                <NextLink
+                  target={disabled ? undefined : "_blank"}
+                  className={`${disabled && "cursor-not-allowed"}`}
+                  href={disabled ? "#" : web}
+                >
+                  Web
+                </NextLink>
+                <NextLink
+                  href={disabled ? "#" : github}
+                  className={`${disabled && "cursor-not-allowed"}`}
+                  target={disabled ? undefined : "_blank"}
+                >
+                  GitHub
+                </NextLink>
+              </ModalBody>
 
-        <Modal.Footer>
-          <Button auto flat color="error" onPress={closeHandler}>
-            Close
-          </Button>
-        </Modal.Footer>
+              <ModalFooter>
+                <Button color="default" onPress={onOpen}>
+                  Close
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
       </Modal>
     </div>
   );

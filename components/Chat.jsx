@@ -1,12 +1,13 @@
 import { Button } from "@nextui-org/react";
 import { useChat } from "ai/react";
 import { useEffect, useRef, useState } from "react";
+
 import { SiSendinblue } from "react-icons/si";
 import { AiOutlineUser } from "react-icons/ai";
 
 const QUESTIONS = [
-  "Is Mateo a good fit for a web app?",
-  "Is Mateo a good fit for a mobile app?",
+  "Is Mateo a good fit for a web project?",
+  "Is Mateo a good fit for a mobile project?",
   "What can you tell me about Mateo?",
 ];
 
@@ -35,7 +36,7 @@ export default function Chat() {
     <>
       <div
         ref={ref}
-        className="flex max-h-[60vh] flex-col overflow-y-auto break-words rounded-xl"
+        className="max flex max-h-[60vh] flex-col overflow-y-auto break-words rounded-xl max-2xl:max-h-[40vh]"
       >
         {messages.map((m, idx) => (
           <div
@@ -43,14 +44,14 @@ export default function Chat() {
             className={`child flex gap-4 p-4 ${
               m.role === "user"
                 ? "bg-gray-300 dark:bg-[#343541]"
-                : "bg-gray-100 dark:bg-[#444654]"
+                : "bg-gray-200 dark:bg-[#444654]"
             }`}
           >
             {m.role === "user" ? (
               <div
                 size="xs"
                 color="secondary"
-                className="p-3 dark:text-gray-50 dark:disabled:text-gray-500"
+                className="p-3 dark:text-gray-50  dark:disabled:text-gray-500"
               >
                 <AiOutlineUser size={20} />
               </div>
@@ -58,7 +59,7 @@ export default function Chat() {
               <div
                 size="xs"
                 color="secondary"
-                className="h-fit w-fit rounded-lg bg-[#19c37d] p-3 dark:text-gray-50 dark:disabled:text-gray-500"
+                className="h-fit w-fit rounded-lg bg-[#19c37d] p-3 text-gray-100  dark:disabled:text-gray-500"
               >
                 <SiSendinblue size={20} />
               </div>
@@ -68,7 +69,7 @@ export default function Chat() {
         ))}
       </div>
       <form onSubmit={handleSubmit} autoComplete="off">
-        <div className="flex flex-col gap-4">
+        <div className=" flex flex-col gap-4">
           <div className="relative">
             <input
               value={input}
@@ -80,28 +81,21 @@ export default function Chat() {
               className="block h-20 w-full rounded-xl border-0 bg-white py-8 pl-6 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:bg-[#FFFFFF0D] dark:text-inherit dark:ring-gray-800 sm:text-sm sm:leading-6"
             />
             <div className="absolute right-9 top-4 w-6">
-              <button
-                size="xs"
-                color="secondary"
-                className="rounded-lg p-3 enabled:bg-[#19c37d] disabled:bg-none disabled:text-gray-300 dark:text-gray-50 dark:disabled:text-gray-500"
+              <Button
+                isIconOnly
+                className="rounded-lg text-gray-100 enabled:bg-[#19c37d] disabled:bg-none disabled:text-gray-100 dark:text-gray-50 dark:disabled:text-gray-500"
                 disabled={!input}
+                type="submit"
               >
                 <SiSendinblue size={20} />
-              </button>
+              </Button>
             </div>
           </div>
           {QUESTIONS.map((question) => (
             <Button
               key={question}
-              size="xs"
-              css={{
-                width: "fit-content",
-                paddingTop: "1rem",
-                paddingBottom: "1rem",
-                paddingRight: "1.5rem",
-                paddingLeft: "1.5rem",
-              }}
-              variant="faded"
+              color="default"
+              variant="bordered"
               onClick={() => {
                 setInput(question);
               }}

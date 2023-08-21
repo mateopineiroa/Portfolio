@@ -4,7 +4,7 @@ import realState from "../public/realState.png";
 import pacientAdmin from "../public/pacientAdmin.png";
 import portfolio from "../public/portfolio.png";
 import ModalComponent from "./ModalComponent";
-import { Text } from "@nextui-org/react";
+//
 
 const ProjectsData = [
   {
@@ -47,18 +47,11 @@ const Projects = forwardRef(({ scrollContact }, ref) => {
       <div
         ref={ref}
         id="projects"
-        className="flex min-h-screen w-screen flex-col justify-center pb-12"
+        className="flex min-h-screen w-screen flex-col justify-center"
       >
-        <Text
-          h2
-          size={40}
-          css={{
-            textGradient: "45deg, $gray900 -20%, $gray400 100%",
-          }}
-          className="inline self-center  font-bold"
-        >
+        <h2 className="inline self-center bg-gradient-to-b from-zinc-800 to-zinc-300 bg-clip-text text-3xl font-bold  text-transparent selection:text-zinc-800">
           Personal Projects
-        </Text>
+        </h2>
 
         <div className="flex flex-col self-center  p-10 md:grid md:w-full md:grid-cols-3 md:grid-rows-2 md:gap-11 xl:w-10/12 2xl:w-3/4">
           {ProjectsData.map(

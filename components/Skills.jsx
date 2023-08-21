@@ -6,12 +6,12 @@ import css from "../public/skills/css.png";
 import c from "../public/skills/c++.png";
 import tailwind from "../public/skills/tailwind.png";
 import node from "../public/skills/node.png";
+import typescript from "../public/skills/typescript.png";
 
 import Image from "next/image";
 import { forwardRef } from "react";
-import { Text } from "@nextui-org/react";
 
-const IMAGES = [html, css, js, tailwind, c, react, nextjs, node];
+const IMAGES = [html, css, js, typescript, tailwind, react, nextjs, node];
 
 const Skills = forwardRef(({ scrollProjects }, ref) => {
   return (
@@ -21,16 +21,12 @@ const Skills = forwardRef(({ scrollProjects }, ref) => {
         id="skills"
         className="flex min-h-screen w-screen flex-col justify-center "
       >
-        <Text
-          h1
-          size={40}
-          css={{
-            textGradient: "45deg, $gray900 -20%, $gray400 100%",
-          }}
-          className="inline self-center font-bold"
+        <h2
+          style={{ textWrap: "balance" }}
+          className="inline self-center bg-gradient-to-bl from-zinc-800 to-zinc-300 bg-clip-text text-3xl font-bold  text-transparent selection:text-zinc-800"
         >
           Favorite Technologies
-        </Text>
+        </h2>
         <div className="mx-9 mt-8 grid grid-cols-2 items-center justify-items-center gap-9 self-center sm:grid-cols-3 md:w-1/2 md:grid-cols-4 md:grid-rows-2 xl:w-1/3">
           {IMAGES.map((src) => (
             <Image

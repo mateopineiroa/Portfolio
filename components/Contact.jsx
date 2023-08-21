@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { forwardRef } from "react";
-import { Text } from "@nextui-org/react";
+import { AiOutlineCopy } from "react-icons/ai";
+import { toast } from "react-hot-toast";
 
 import linkedin from "../public/contact/linkedin.png";
 import github from "../public/contact/github.png";
@@ -25,16 +26,9 @@ const Contact = forwardRef((_, ref) => {
       id="contact"
       className="flex min-h-screen w-screen flex-col justify-center"
     >
-      <Text
-        h1
-        size={40}
-        css={{
-          textGradient: "45deg, $gray900 -20%, $gray400 100%",
-        }}
-        className="inline text-center font-bold"
-      >
+      <h2 className="inline self-center bg-gradient-to-bl from-gray-800 to-gray-400 bg-clip-text text-3xl font-bold  text-transparent selection:text-gray-800">
         {"Let's talk!"}
-      </Text>
+      </h2>
       <div className="mb-24 mt-8 grid w-full grid-cols-2 gap-9 self-center  p-4 md:grid-cols-3 lg:w-1/2">
         <div className="flex cursor-pointer flex-col justify-center align-middle">
           <a
@@ -63,7 +57,7 @@ const Contact = forwardRef((_, ref) => {
           </a>
         </div>
 
-        <div className="flex flex-col justify-center align-middle">
+        <div className="flex flex-col justify-center gap-2 align-middle">
           <a
             className="cursor-pointer self-center"
             href={`mailto:mateopineiro2001@gmail.com?subject=${SUBJECT}&body=${BODY}`}
@@ -78,15 +72,18 @@ const Contact = forwardRef((_, ref) => {
               draggable="false"
             />
           </a>
-          <p
-            className="w-full text-center text-xs hover:cursor-pointer"
-            onClick={() => copyToClipboard("mateopineiro2001@gmail.com")}
-          >
-            Copy to Clipboard
-            <span className="material-symbols-outlined scale-75 text-xs">
-              content_copy
-            </span>
-          </p>
+          <div className="flex items-start justify-center">
+            <p
+              className="w-fit text-center text-xs hover:cursor-pointer"
+              onClick={() => {
+                copyToClipboard("mateopineiro2001@gmail.com");
+                toast.success("Copied to clipboard!");
+              }}
+            >
+              Copy to Clipboard
+            </p>
+            <AiOutlineCopy size={10} />
+          </div>
         </div>
       </div>
     </section>

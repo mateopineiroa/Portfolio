@@ -1,6 +1,6 @@
 import { forwardRef, useEffect, useState } from "react";
 import SeeMore from "./SeeMore";
-import { Text } from "@nextui-org/react";
+
 import { useRouter } from "next/navigation";
 
 const Intro = forwardRef(({ scrollAboutMe }, ref) => {
@@ -9,39 +9,29 @@ const Intro = forwardRef(({ scrollAboutMe }, ref) => {
       <div
         ref={ref}
         id="intro"
-        className="-top-30 relative flex min-h-screen w-screen flex-col justify-center px-10 align-middle  "
+        className="-top-30 relative flex min-h-screen w-screen flex-col justify-center gap-2 px-10 align-middle  "
       >
-        <div className="self-center">
-          <Text
-            b
-            size={40}
-            css={{ display: "inline" }}
-            className="dark:text-gray-200"
-          >
+        <h1 className="self-center ">
+          <span className=" bg-clip-text text-5xl text-inherit">
             {"Hi! I'm "}
-          </Text>
-          <Text
-            h1
-            size={40}
-            css={{
-              textGradient: "45deg, $blue800 -20%, $blue400 100%",
-            }}
-            className="inline "
+          </span>
+          <span
+            className="bg-gradient-to-br from-blue-700 to-blue-200 bg-clip-text text-5xl font-extrabold text-transparent selection:text-gray-800"
             weight="bold"
           >
             Mateo
-          </Text>
-        </div>
+          </span>
+        </h1>
 
-        <Text
+        <h4
           style={{ textWrap: "balance" }}
-          h4
-          className="self-center text-center dark:text-gray-200"
+          className="self-center text-center text-xl dark:text-gray-200"
         >
-          {
-            "I'm a Software Developer currently focused on building web applications."
-          }
-        </Text>
+          {"I'm"} a Software Developer currently focused on building{" "}
+          <span className=" underline decoration-zinc-400 underline-offset-4 selection:underline">
+            web applications.
+          </span>
+        </h4>
       </div>
     </section>
   );

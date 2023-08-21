@@ -11,34 +11,40 @@ const Nav = ({ Sections }) => {
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
     const viewportHeight = window.innerHeight;
-
-    setVisibleSection(
-      Math.min(
-        Math.max(
-          Math.floor((scrollPosition + viewportHeight / 2) / viewportHeight),
-          0,
+    console.log(scrollPosition);
+    if (scrollPosition) {
+      setVisibleSection(
+        Math.min(
+          Math.max(
+            Math.floor((scrollPosition + viewportHeight / 2) / viewportHeight),
+            0,
+          ),
+          5,
         ),
-        5,
-      ),
-    );
+      );
+    }
   };
+  console.log(visibleSection);
+  console.log(mobileMenuOpen);
+  useEffect(() => {
+    if (!mobileMenuOpen) {
+      // handleScroll();
+    }
+  }, [mobileMenuOpen, visibleSection]);
 
   useEffect(() => {
-    handleScroll();
-  }, []);
-
-  useEffect(() => {
-    if (isRendered) {
+    if (isRendered && !mobileMenuOpen) {
       window.addEventListener("scroll", handleScroll);
     }
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isRendered]);
+  }, [isRendered, mobileMenuOpen]);
 
   useEffect(() => {
     if (!isRendered) setIsRendered(true);
+
     if (
       (isRendered && localStorage.theme === "dark") ||
       (!("theme" in localStorage) &&
@@ -110,10 +116,10 @@ const Nav = ({ Sections }) => {
         as="div"
         className="dark:bg-[#111827] lg:hidden"
         open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
       >
         <div className="fixed inset-0 z-30" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-30 w-full overflow-y-auto bg-white px-6 py-6  dark:bg-[#111827] dark:text-white sm:max-w-sm">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto bg-white px-6 py-6  dark:bg-[#111827] dark:text-white sm:max-w-sm">
           <div className="flex items-center justify-end">
             <button
               type="button"
@@ -141,7 +147,7 @@ const Nav = ({ Sections }) => {
                     }`}
                     onClick={() => {
                       onClick();
-                      setMobileMenuOpen(false);
+                      setMobileMenuOpen(true);
                     }}
                   >
                     {title}
