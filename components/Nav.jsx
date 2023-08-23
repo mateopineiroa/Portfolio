@@ -1,18 +1,18 @@
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { PiHamburgerFill, PiHamburgerLight } from "react-icons/pi";
 
-const Nav = ({ Sections }) => {
+const Nav = ({ Sections, clientHeight }) => {
   const [isRendered, setIsRendered] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [visibleSection, setVisibleSection] = useState(null);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const scrollPosition = window.scrollY;
     const viewportHeight = window.innerHeight;
-    console.log(scrollPosition);
-    if (scrollPosition) {
+
+    if (scrollPosition && !mobileMenuOpen) {
       setVisibleSection(
         Math.min(
           Math.max(
@@ -23,11 +23,11 @@ const Nav = ({ Sections }) => {
         ),
       );
     }
-  };
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     handleScroll();
-  }, [mobileMenuOpen, visibleSection]);
+  }, [handleScroll, mobileMenuOpen, visibleSection]);
 
   useEffect(() => {
     if (isRendered && !mobileMenuOpen) {
@@ -37,7 +37,7 @@ const Nav = ({ Sections }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isRendered, mobileMenuOpen]);
+  }, [handleScroll, isRendered, mobileMenuOpen]);
 
   useEffect(() => {
     if (!isRendered) setIsRendered(true);
@@ -62,7 +62,7 @@ const Nav = ({ Sections }) => {
         } fixed top-0 z-20 mx-auto flex w-full items-center  justify-end p-3 lg:justify-center lg:px-8`}
         aria-label="Global"
       >
-        <div className="flex lg:hidden">
+        <div className="flex hidden lg:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-6 text-inherit"
@@ -111,7 +111,7 @@ const Nav = ({ Sections }) => {
       </nav>
       <Dialog
         as="div"
-        className="dark:bg-[#111827] lg:hidden"
+        className="hidden dark:bg-[#111827] lg:hidden"
         open={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
       >
@@ -144,7 +144,8 @@ const Nav = ({ Sections }) => {
                     }`}
                     onClick={() => {
                       onClick();
-                      setMobileMenuOpen(true);
+                      setVisibleSection(idx);
+                      // setMobileMenuOpen(false);
                     }}
                   >
                     {title}

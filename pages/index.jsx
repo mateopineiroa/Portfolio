@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { createRef, useRef } from "react";
+import { createRef, useEffect, useRef } from "react";
 
 import Intro from "../components/Introduction";
 import Nav from "../components/Nav";
@@ -12,9 +12,9 @@ import AiHelper from "../components/AiHelper";
 const Sections = [
   { title: "Intro", Comp: Intro },
   { title: "About Me", Comp: AboutMe },
+  { title: "Ask Ai", Comp: AiHelper },
   { title: "Skills", Comp: Skills },
   { title: "Projects", Comp: Projects },
-  { title: "Ask Ai", Comp: AiHelper },
   { title: "Contact", Comp: Contact },
 ];
 
@@ -25,6 +25,11 @@ export default function Home() {
     onClick: () =>
       Refs.current[idx].current.scrollIntoView({ behavior: "smooth" }),
   }));
+  const ref = useRef();
+  // useEffect(() => {
+  //   console.log(ref?.current?.clientHeight);
+  //   console.log(ref?.current?.scrollHeight);
+  // }, []);
   return (
     <div>
       <Head>
@@ -33,9 +38,12 @@ export default function Home() {
         <link rel="icon" href="/me.png" />
       </Head>
 
-      <Nav Sections={sections} />
+      <Nav Sections={sections} clientHeight={ref?.current?.clientHeight} />
 
-      <main className="z-10 bg-[#F2F2F2] text-[#11181C] dark:bg-[#111827] dark:text-white">
+      <main
+        ref={ref}
+        className="z-10 bg-[#F2F2F2] text-[#11181C] dark:bg-[#111827] dark:text-white"
+      >
         {Sections.map(({ Comp, title }, idx) => (
           <Comp key={title} ref={Refs.current[idx]} />
         ))}

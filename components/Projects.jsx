@@ -3,17 +3,43 @@ import businessManager from "../public/BusinessManager.png";
 import realState from "../public/realState.png";
 import pacientAdmin from "../public/pacientAdmin.png";
 import portfolio from "../public/portfolio.png";
+import twitterClone from "../public/twitterClone.png";
+import chatApp from "../public/chatApp.png";
 import ModalComponent from "./ModalComponent";
-//
 
 const ProjectsData = [
   {
     title: "Portfolio",
-    description: "NextJS app using tailwind and NextUI library for style.",
+    description:
+      "NextJS app using JavaScript, Vercel AI SDK, Tailwind and the NextUI components library.",
     github: "https://github.com/mateopineiroa/Portfolio",
     web: "https://portfolio-mateopineiroa.vercel.app/",
-    technologies: ["NextJS", "JavaScript", "Tailwind", "NextUI", "HTML"],
+    technologies: [
+      "NextJS",
+      "JavaScript",
+      "Tailwind",
+      "NextUI",
+      "Vercel AI SDK",
+    ],
     img: portfolio,
+  },
+  {
+    title: "Twitter Clone",
+    description:
+      "NextJS app using TypeScript, Supabase and Tailwind for styles.",
+    github: "https://github.com/mateopineiroa/twitter-x",
+    web: "https://twitter-x-zeta.vercel.app/",
+    technologies: ["NextJS", "TypeScript", "Tailwind"],
+    img: twitterClone,
+  },
+  {
+    title: "Chat App",
+    description:
+      "NextJS app using TypeScript, Node.js for the backend, MongoDB, Mongoose, Socket.io and Tailwind for styles.",
+    github: "https://github.com/mateopineiroa/node-consumer",
+    web: "https://node-consumer.vercel.app/",
+    technologies: ["NextJS", "TypeScript", "Tailwind", "MongoDB", "Socket.io"],
+    img: chatApp,
   },
   {
     title: "Veterinary Patient Manager",
@@ -53,7 +79,7 @@ const Projects = forwardRef(({ scrollContact }, ref) => {
           Personal Projects
         </h2>
 
-        <div className="flex flex-col self-center  p-10 md:grid md:w-full md:grid-cols-3 md:grid-rows-2 md:gap-11 xl:w-10/12 2xl:w-3/4">
+        <div className="flex flex-col items-center self-center p-10 md:grid md:w-full md:grid-cols-3 md:grid-rows-2 md:gap-11 xl:w-10/12 2xl:w-3/4">
           {ProjectsData.map(
             ({
               title,

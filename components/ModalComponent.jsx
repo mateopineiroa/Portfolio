@@ -11,6 +11,7 @@ import {
 } from "@nextui-org/react";
 import Image from "next/image";
 import NextLink from "next/link";
+import { BiLinkExternal } from "react-icons/bi";
 
 const ModalComponent = ({
   title,
@@ -43,37 +44,44 @@ const ModalComponent = ({
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         className="hover:cursor-default"
+        size="4xl"
       >
         <ModalContent>
           {(onOpen) => (
             <>
-              <ModalHeader>
-                <p>
+              <ModalHeader className="flex w-full flex-col items-center justify-center gap-5 p-7">
+                <p className="text-2xl font-light">
                   Proyect: {""}
-                  {title}
-                  <Image
-                    src={img}
-                    alt={`${title} proyect image`}
-                    draggable="false"
-                  />
+                  <span className="font-normal">{title}</span>
                 </p>
+                <Image
+                  src={img}
+                  alt={`${title} proyect image`}
+                  draggable="false"
+                />
               </ModalHeader>
 
               <ModalBody>
                 <p>{description}</p>
                 <NextLink
-                  target={disabled ? undefined : "_blank"}
-                  className={`${disabled && "cursor-not-allowed"}`}
                   href={disabled ? "#" : web}
+                  className={`${
+                    disabled && "cursor-not-allowed"
+                  } flex w-fit underline`}
+                  target={disabled ? undefined : "_blank"}
                 >
                   Web
+                  <BiLinkExternal size={12} />
                 </NextLink>
                 <NextLink
                   href={disabled ? "#" : github}
-                  className={`${disabled && "cursor-not-allowed"}`}
+                  className={`${
+                    disabled && "cursor-not-allowed"
+                  } flex w-fit underline`}
                   target={disabled ? undefined : "_blank"}
                 >
                   GitHub
+                  <BiLinkExternal size={12} />
                 </NextLink>
               </ModalBody>
 
