@@ -8,6 +8,7 @@ import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import AiHelper from "../components/AiHelper";
+import Form from "../components/Form";
 
 const Sections = [
   { title: "Intro", Comp: Intro },
@@ -15,6 +16,7 @@ const Sections = [
   { title: "Ask Ai", Comp: AiHelper },
   { title: "Skills", Comp: Skills },
   { title: "Projects", Comp: Projects },
+  { title: "Get in touch", Comp: Form },
   { title: "Contact", Comp: Contact },
 ];
 
@@ -26,10 +28,7 @@ export default function Home() {
       Refs.current[idx].current.scrollIntoView({ behavior: "smooth" }),
   }));
   const ref = useRef();
-  // useEffect(() => {
-  //   console.log(ref?.current?.clientHeight);
-  //   console.log(ref?.current?.scrollHeight);
-  // }, []);
+
   return (
     <div>
       <Head>

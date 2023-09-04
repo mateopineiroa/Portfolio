@@ -19,11 +19,11 @@ const Nav = ({ Sections, clientHeight }) => {
             Math.floor((scrollPosition + viewportHeight / 2) / viewportHeight),
             0,
           ),
-          5,
+          Sections.length,
         ),
       );
     }
-  }, [mobileMenuOpen]);
+  }, [Sections.length, mobileMenuOpen]);
 
   useEffect(() => {
     handleScroll();
@@ -99,8 +99,10 @@ const Nav = ({ Sections, clientHeight }) => {
           {Sections.map(({ title, onClick }, idx) => (
             <button
               key={title}
-              className={`z-30 rounded-xl px-4 py-2 text-sm font-semibold leading-6 text-gray-800 hover:bg-gray-300 dark:text-gray-200 dark:hover:bg-[#2d3c4d] ${
-                visibleSection === idx ? " bg-gray-300 dark:bg-[#2d3c4d] " : ""
+              className={`z-30 rounded-xl px-4 py-2 text-sm font-semibold leading-6 text-gray-800  dark:text-gray-200  ${
+                visibleSection === idx
+                  ? " bg-gray-300 dark:bg-[#2d3c4d] "
+                  : "hover:bg-gray-200 dark:hover:bg-[#222d39]"
               }`}
               onClick={onClick}
             >
@@ -137,7 +139,7 @@ const Nav = ({ Sections, clientHeight }) => {
                 {Sections.map(({ title, onClick }, idx) => (
                   <button
                     key={title}
-                    className={`-mx-3 block w-full rounded-xl px-3  py-2 text-left text-base font-semibold leading-7 hover:bg-gray-300 dark:hover:bg-[#1F2937] ${
+                    className={`-mx-3 block w-full rounded-xl px-3  py-2 text-left text-base font-semibold leading-7 hover:bg-gray-50 dark:hover:bg-[#394c66] ${
                       visibleSection === idx
                         ? "bg-gray-300  dark:bg-[#1F2937] "
                         : ""
