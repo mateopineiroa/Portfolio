@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { toast } from "react-hot-toast";
+import { Button } from "@nextui-org/react";
 
 import { db } from "../firebase";
 import { getErrorMessage } from "../utils/getErrorMessage";
@@ -137,12 +138,9 @@ const Form = forwardRef((_, ref) => {
             </div>
           </div>
           <div className="mt-10">
-            <button
-              type="submit"
-              className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
+            <Button type="submit" color="primary" className="w-full">
               {"Let's"} talk
-            </button>
+            </Button>
           </div>
         </form>
       </div>
