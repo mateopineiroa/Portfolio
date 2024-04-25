@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { createRef, useEffect, useRef } from "react";
+import { createRef, useRef } from "react";
 
 import Intro from "../components/Introduction";
 import Nav from "../components/Nav";

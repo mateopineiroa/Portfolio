@@ -1,17 +1,31 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { toast } from "react-hot-toast";
 import { Button } from "@nextui-org/react";
 
 import { db } from "../firebase";
 import { getErrorMessage } from "../utils/getErrorMessage";
+import axios from "axios";
 
 const inputFormat =
   "block w-full rounded-md border-0 bg-[#FFFFFF0D] px-3.5  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus-visible:outline-none  dark:text-white/70 dark:ring-[#ffffff1a] dark:focus:ring-indigo-900 sm:text-sm sm:leading-6";
 
 const Form = forwardRef((_, ref) => {
+  const [fullUrl, setFullUrl] = useState("");
+
+  useEffect(() => {
+    // Construct full URL only when window is available
+    if (typeof window !== "undefined") {
+      const protocol = window.location.protocol;
+      const host = window.location.host;
+
+      setFullUrl(`${protocol}//${host}`);
+    }
+  }, []);
+
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (!fullUrl) throw new Error("Something went wrong");
 
     const formData = Array.from(e.target.elements)
       .filter((element) => element.name)
@@ -20,7 +34,9 @@ const Form = forwardRef((_, ref) => {
         return acc;
       }, {});
 
-    await addDoc(collection(db, "contact"), formData);
+    await axios.post(`${fullUrl}/api/process-form`, formData);
+
+    // await addDoc(collection(db, "contact"), formData);
   };
 
   return (

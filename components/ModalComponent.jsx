@@ -22,13 +22,7 @@ const ModalComponent = ({
   img,
   disabled,
 }) => {
-  const [visible, setVisible] = useState(false);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const handler = () => setVisible(true);
-
-  const closeHandler = () => {
-    setVisible(false);
-  };
 
   return (
     <div className="my-4">
@@ -36,7 +30,7 @@ const ModalComponent = ({
         src={img}
         alt={`${title} proyect image`}
         onClick={onOpen}
-        className="hover:cursor-pointer"
+        className="hover:cursor-pointer aspect-video object-cover"
         draggable="false"
       />
       <Modal
@@ -51,19 +45,19 @@ const ModalComponent = ({
             <>
               <ModalHeader className="flex w-full flex-col items-center justify-center gap-5 p-7">
                 <p className="text-2xl font-light">
-                  Proyect: {""}
                   <span className="font-normal">{title}</span>
                 </p>
                 <Image
                   src={img}
                   alt={`${title} proyect image`}
                   draggable="false"
+                  className="aspect-video object-cover"
                 />
               </ModalHeader>
 
               <ModalBody>
                 <p>{description}</p>
-                <NextLink
+                {!!web && <NextLink
                   href={disabled ? "#" : web}
                   className={`${
                     disabled && "cursor-not-allowed"
@@ -72,8 +66,8 @@ const ModalComponent = ({
                 >
                   Web
                   <BiLinkExternal size={12} />
-                </NextLink>
-                <NextLink
+                </NextLink>}
+                {!!github && <NextLink
                   href={disabled ? "#" : github}
                   className={`${
                     disabled && "cursor-not-allowed"
@@ -82,7 +76,7 @@ const ModalComponent = ({
                 >
                   GitHub
                   <BiLinkExternal size={12} />
-                </NextLink>
+                </NextLink>}
               </ModalBody>
 
               <ModalFooter>

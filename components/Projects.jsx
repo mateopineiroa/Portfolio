@@ -5,9 +5,29 @@ import pacientAdmin from "../public/pacientAdmin.png";
 import portfolio from "../public/portfolio.png";
 import twitterClone from "../public/twitterClone.png";
 import chatApp from "../public/chatApp.png";
+import WIP from "../public/WIP.webp";
 import ModalComponent from "./ModalComponent";
 
 const ProjectsData = [
+  {
+    title: "Access Control For Business - Secret Name",
+    description:
+      <><b>Access Control For Business - The biggest project yet</b><br/> It handles authentication and authorization depending on the role of the user.</>,
+    github: "",
+    web: "",
+    technologies: [
+      "NextJS",
+      "NodeJS",
+      "MongoDB",
+      "NextAuth.js",
+      "v0",
+      "TypeScript",
+      "Tailwind",
+      "shadcn/ui",
+      "radix",
+    ],
+    img: WIP,
+  },
   {
     title: "Portfolio",
     description:
